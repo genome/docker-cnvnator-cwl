@@ -52,7 +52,7 @@ RUN mkdir build $ROOT_INSTALL_DIR \
   && rm -rf /tmp/root-6.18.00/
 
 RUN echo 'source $ROOT_INSTALL_DIR/bin/thisroot.sh' >> ~/.bashrc
-ENV ROOTSYS=$ROOT_INSTALL_DIR/
+ENV ROOTSYS=$ROOT_INSTALL_DIR
 ENV PATH=$PATH:$ROOTSYS/bin
 
 ## add samtools
@@ -73,7 +73,7 @@ RUN cd /opt \
   && ln -s /opt/samtools-1.9 samtools \
   && make
 
-RUN ln -s /opt/CNVnator-${CNVNATOR_VERSION}/cnvnator /usr/bin \
-  && ln -s /opt/CNVnator-${CNVNATOR_VERSION}/cnvnator2VCF.pl /usr/bin
+RUN ln -s /opt/CNVnator-$CNVNATOR_VERSION/cnvnator /usr/bin \
+  && ln -s /opt/CNVnator-$CNVNATOR_VERSION/cnvnator2VCF.pl /usr/bin
 
 WORKDIR /
