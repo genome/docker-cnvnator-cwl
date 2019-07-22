@@ -34,7 +34,7 @@ ENV CMAKE_INSTALL_DIR=/opt/cmake
 RUN cd cmake-3.15.0 \
   && ./bootstrap \
   && ./configure --prefix=$CMAKE_INSTALL_DIR \
-  && make -j4 \
+  && make \
   && make install \
   && cd .. \
   && rm -rf cmake-3.15.0
